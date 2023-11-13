@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 import useRequest from './use-request'
 
 describe('#useRequest', () => {
@@ -8,6 +8,9 @@ describe('#useRequest', () => {
 		const fetchMock = () => Promise.resolve({
 			json: () => Promise.resolve({ key: 'value' })
 		}) as Promise<Response>
+
+		// workaround for missing fetch on global in Node 18+
+		global.fetch = global.fetch || fetchMock
 
 		fetchSpy = jest.spyOn(global, 'fetch').mockImplementation(fetchMock)
 	})
@@ -19,8 +22,8 @@ describe('#useRequest', () => {
 	describe('when there is a url provided', () => {
 		const url = 'https://example.com'
 
-		it('executes a request against the url', () => {
-			renderHook(useRequest, { initialProps: { url } })
+		it('executes a request against the url', async () => {
+			await act(() => renderHook(useRequest, { initialProps: { url } }))
 
 			expect(fetchSpy).toHaveBeenCalled()
 		})
@@ -29,8 +32,8 @@ describe('#useRequest', () => {
 	describe('when there is a blank url provided', () => {
 		const url = ''
 
-		it('does not execute a request', () => {
-			renderHook(useRequest, { initialProps: { url } })
+		it('does not execute a request', async () => {
+			await act(() => renderHook(useRequest, { initialProps: { url } }))
 
 			expect(fetchSpy).not.toHaveBeenCalled()
 		})
