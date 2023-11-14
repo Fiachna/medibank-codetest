@@ -1,12 +1,15 @@
 # Fiachna Carter Medibank Code Test
 
 Simple application that requests and renders an alphabetical list of cats grouped by their owner's gender
+
 Uses Vite, React and Typescript. Built using Node 18+
 
 # Running the application
 
-Clone the repository locally, then run `npm install`
-Then to run locally, run `npm run dev`
+1. Clone the repository locally
+1. run `npm install`
+1. run `npm run dev`
+
 The application will run at `localhost:5173` by default
 
 # Notes
