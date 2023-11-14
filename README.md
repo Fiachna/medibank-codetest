@@ -10,7 +10,7 @@ Uses Vite, React and Typescript. Built using Node 18+
 1. run `npm install`
 1. run `npm run dev`
 
-The application will run at `localhost:5173` by default
+The application will run at http://localhost:5173 by default
 
 # Notes
  - I kept the styling super simple since it actually looks pretty nice and doesn't need to be super flashy
