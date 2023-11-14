@@ -2,10 +2,7 @@ import { Pet, PetType } from "../../types/pet"
 
 import { render, screen } from '@testing-library/react'
 import { PetCategory } from "./pet-category"
-
-const PET_CARD_TEST_ID = 'pet-card'
-const PET_CATEGORY_LABEL_TEST_ID = 'pet-category-label'
-const PET_CATEGORY_TEST_ID= 'pet-category'
+import { PET_CATEGORY_LABEL_TEST_ID, PET_CARD_TEST_ID, PET_CATEGORY_TEST_ID } from "../../utilities/test-ids"
 
 describe('#PetCategory', () => {
 	const category = 'labrador'

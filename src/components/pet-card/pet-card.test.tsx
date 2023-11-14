@@ -1,8 +1,7 @@
 import { Pet, PetType } from "../../types/pet"
+import { PET_CARD_TEST_ID } from "../../utilities/test-ids"
 import { PetCard } from "./pet-card"
 import { render, screen } from '@testing-library/react'
-
-const PET_CARD_TEST_ID = 'pet-card'
 
 describe('#PetCard', () => {
 	it('renders the name of the pet', () => {
