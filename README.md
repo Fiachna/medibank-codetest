@@ -1,27 +1,19 @@
-# React + TypeScript + Vite
+# Fiachna Carter Medibank Code Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple application that requests and renders an alphabetical list of cats grouped by their owner's gender
+Uses Vite, React and Typescript. Built using Node 18+
 
-Currently, two official plugins are available:
+# Running the application
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Clone the repository locally, then run `npm install`
+Then to run locally, run `npm run dev`
+The application will run at `localhost:5173` by default
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Notes
+ - I kept the styling super simple since it actually looks pretty nice and doesn't need to be super flashy
+ - mocking fetch was a nuisance, since Node 18 it's no longer included as a global with jest, so I've had to add a 
+ ghetto polyfill which might be better added to a pre-run file
+ - components running async calls in jest using initial state need to be wrapped in an `act` call since they immediately
+ execute an async call
+ - the `useRequest` hook is kept super simple, I didn't want to overengineer it but it opens itself up to be extended
+ easily
